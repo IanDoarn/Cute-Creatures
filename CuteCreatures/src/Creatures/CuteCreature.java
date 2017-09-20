@@ -2,10 +2,9 @@
  * Author: Ian Doarn
  * Professor: Kriangsiri Malasiri
  */
-
+package Creatures;
 import java.util.Random;
 import java.util.Arrays;
-
 public class CuteCreature {
 
     /* Private variables and stats */
@@ -36,9 +35,9 @@ public class CuteCreature {
     /* Other Stuff */
     private boolean isFainted = false;
     private final boolean isEvolved = false;
-    private String elementalAttribution = "";
+    private String elementalAttribution = "Normal";
     private int requiredtotalExp = 250;
-    private String[] possibleElementalType = new String[]{"Fire", "Water", "Earth", "Air"};
+    private String[] possibleElementalType = new String[]{"Fire", "Water", "Earth", "Air", "Normal"};
 
     /*Private tools*/
     private Random random = new Random();
@@ -65,6 +64,7 @@ public class CuteCreature {
     public int getExperienceValue() {
         return this.experienceValue;
     }
+    public int getTotalRequiredXP() { return this.requiredtotalExp; }
     public boolean getIsSpecial() {
         return this.isSpecial;
     }
@@ -79,6 +79,7 @@ public class CuteCreature {
     }
 
     /* Setters */
+    public void setLevel(int newLevel) { this.level = newLevel; }
     public void setMaximumHitPoints(int maxHP) {
         this.maximumHitPoints = maxHP;
     }
@@ -97,6 +98,7 @@ public class CuteCreature {
     public void setExperienceValue(int xpValue) {
         this.experienceValue = xpValue;
     }
+    public void setTotalRequiredExperience(int requiredValue) { this.requiredtotalExp = requiredValue; }
     public void setSpecial(boolean value) {
         this.isSpecial = value;
     }
@@ -259,7 +261,7 @@ public class CuteCreature {
 
             A critical hit doubles the damage done.
 
-            If the target CuteCreature is defeated,
+            If the target Creatures.CuteCreature is defeated,
             then the attacking creature will gain the
             defeated creatures experience.
          */

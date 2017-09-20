@@ -1,13 +1,11 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.Arrays;
-
 /**
  * Author: Ian Doarn
  * Professor: Kriangsiri Malasiri
  * <p>
  * Elemental Creatures!
  */
+package Creatures;
+import java.util.Arrays;
 public class EvolvableCuteCreature extends CuteCreature {
 
     private String species = "";
@@ -22,7 +20,7 @@ public class EvolvableCuteCreature extends CuteCreature {
     /* Other Stuff */
     private boolean isFainted = false;
     private boolean isEvolved = false;
-    private String elementalAttribution = "";
+    private String elementalAttribution = "Normal";
     private int requiredtotalExp = 250;
 
     /* Getters */
@@ -214,13 +212,11 @@ public class EvolvableCuteCreature extends CuteCreature {
             to print stats and information about
             the current Cute Creature object
          */
-
-
         StringBuilder sb = new StringBuilder();
 
         // Title
         // Example: Level 1 Bowlbasore
-        String title = String.format("Level %s %s", level, species);
+        String title = String.format("Level %s %s", super.getLevel(), super.getSpecies());
 
         // Little trick to ensure underline for title is
         // the same length as the title!
@@ -235,21 +231,21 @@ public class EvolvableCuteCreature extends CuteCreature {
         sb.append("\n");
 
         // Added only if creature is special
-        if (isSpecial) {
+        if (super.getIsSpecial()) {
             sb.append("*** Special! ***");
             sb.append("\n");
         }
 
         // Add stats: Element Type, HP, Attack Dmg, XP, XP Value
-        sb.append(String.format("Elemental Type: %s", elementalAttribution));
+        sb.append(String.format("Elemental Type: %s", this.elementalAttribution));
         sb.append("\n");
-        sb.append(String.format("HP: %s/%s", currentHitPoints, maximumHitPoints));
+        sb.append(String.format("HP: %s/%s", super.getCurrentHitPoints(), super.getMaximumHitPoints()));
         sb.append("\n");
-        sb.append(String.format("Attack Dmg: %s", attackDamage));
+        sb.append(String.format("Attack Dmg: %s", super.getAttackDamage()));
         sb.append("\n");
-        sb.append(String.format("XP: %s/%s", experiencePoints, requiredtotalExp));
+        sb.append(String.format("XP: %s/%s", super.getExperiencePoints(), super.getTotalRequiredXP()));
         sb.append("\n");
-        sb.append(String.format("XP Value: %s", experienceValue));
+        sb.append(String.format("XP Value: %s", super.getExperienceValue()));
 
         // Return final string
         return sb.toString();
